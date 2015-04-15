@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.zedlitz</groupId>
+  <artifactId>calendar</artifactId>
+  <version>1.1-SNAPSHOT</version>
+  <description>Calendar conversion utils</description>
+  <scm>
+    <connection>scm:svn:https://svn.genealogy.net/calendar/trunk/</connection>
+    <url>https://svn.genealogy.net/calendar/trunk/</url>
+  </scm>
+  <developers>
+    <developer>
+      <id>jzedlitz</id>
+      <name>Jesper Zedlitz</name>
+      <email>jesper@zedlitz.de</email>
+    </developer>
+  </developers>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <reporting>
+    <plugins>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.3</version>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>
