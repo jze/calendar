@@ -1,12 +1,15 @@
 package de.zedlitz.calendar;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author jzedlitz
- * 
  */
-public class MayanHaabTest extends TestCase {
+public class MayanHaabTest {
+
+    @Test
     public void testSetJulianDay() {
         final MayanHaab mayanHaab = new MayanHaab();
         mayanHaab.setJulianDay(2453978.5);

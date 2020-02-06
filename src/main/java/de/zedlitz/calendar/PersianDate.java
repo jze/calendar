@@ -83,8 +83,8 @@ public class PersianDate extends AbstractDate {
 
         return day
                 + ((month <= 7) ? ((month - 1) * 31) : (((month - 1) * 30) + 6))
-                + Math.floor(((epyear * 682) - 110) / 2816) + (epyear - 1)
-                * 365 + Math.floor(epbase / 2820) * 1029983
+                + Math.floor(((epyear * 682) - 110) / 2816.) + (epyear - 1)
+                * 365 + Math.floor(epbase / 2820.) * 1029983
                 + (PERSIAN_EPOCH - 1);
     }
 

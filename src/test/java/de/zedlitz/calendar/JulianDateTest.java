@@ -1,10 +1,14 @@
 package de.zedlitz.calendar;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 /**
  * @author jzedlitz
- * 
  */
-public class JulianDateTest extends AbstractDateTestCase {
+public class JulianDateTest {
+    @Test
     public void testGetJulianDate() {
         final JulianDate julianDate = new JulianDate(2006, 8, 18);
 
@@ -12,6 +16,7 @@ public class JulianDateTest extends AbstractDateTestCase {
                 .getJulianDay(), 0);
     }
 
+    @Test
     public void testSetJulianDate() {
         final JulianDate julianDate = new JulianDate();
         julianDate.setJulianDay(2453978.5);
@@ -20,9 +25,11 @@ public class JulianDateTest extends AbstractDateTestCase {
         assertEquals("month", 8, julianDate.getMonth());
         assertEquals("day", 18, julianDate.getDay());
     }
+
+    @Test
     public void testGetDayOfWeek() {
         final JulianDate gregorianDate = new JulianDate(2006, 8, 18);
-        
+
         assertEquals("correct day of week", 4, gregorianDate.getDayOfWeek());
     }
 }

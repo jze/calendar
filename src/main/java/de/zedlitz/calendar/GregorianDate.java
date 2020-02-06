@@ -86,16 +86,14 @@ public class GregorianDate extends AbstractDate {
 
     /** Determine Julian day number from Gregorian calendar date */
     public double getJulianDay() {
-        double result = (GREGORIAN_EPOCH - 1)
+        return (GREGORIAN_EPOCH - 1)
                 + (365 * (year - 1))
-                + Math.floor((year - 1) / 4)
-                + (-Math.floor((year - 1) / 100))
-                + Math.floor((year - 1) / 400)
-                + Math.floor((((367 * month) - 362) / 12)
+                + Math.floor((year - 1) / 4.)
+                + (-Math.floor((year - 1) / 100.))
+                + Math.floor((year - 1) / 400.)
+                + Math.floor((((367 * month) - 362) / 12.)
                         + ((month <= 2) ? 0 : (this.isLeapYear() ? -1 : -2))
                         + day);
-
-        return result;
     }
 
     /** Calculate Gregorian calendar date from Julian day */
@@ -107,11 +105,11 @@ public class GregorianDate extends AbstractDate {
         double depoch = wjd - GREGORIAN_EPOCH;
         quadricent = (int) Math.floor(depoch / 146097);
         dqc = Astro.mod(depoch, 146097);
-        cent = (int) Math.floor(dqc / 36524);
+        cent = (int) Math.floor(dqc / 36524.);
         dcent = Astro.mod(dqc, 36524);
-        quad = (int) Math.floor(dcent / 1461);
+        quad = (int) Math.floor(dcent / 1461.);
         dquad = Astro.mod(dcent, 1461);
-        yindex = (int) Math.floor(dquad / 365);
+        yindex = (int) Math.floor(dquad / 365.);
         year = (quadricent * 400) + (cent * 100) + (quad * 4) + yindex;
         if (!((cent == 4) || (yindex == 4))) {
             year++;
@@ -119,7 +117,7 @@ public class GregorianDate extends AbstractDate {
         yearday = (int) (wjd - new GregorianDate(year, 1, 1).getJulianDay());
         leapadj = ((wjd < new GregorianDate(year, 3, 1).getJulianDay()) ? 0
                 : (this.isLeapYear() ? 1 : 2));
-        this.month = (int) Math.floor((((yearday + leapadj) * 12) + 373) / 367);
+        this.month = (int) Math.floor((((yearday + leapadj) * 12) + 373) / 367.);
         this.day = (int) (wjd - new GregorianDate(year, month, 1)
                 .getJulianDay()) + 1;
     }

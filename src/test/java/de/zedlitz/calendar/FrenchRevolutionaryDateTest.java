@@ -1,14 +1,15 @@
 package de.zedlitz.calendar;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 /**
  * @author jzedlitz
- * 
  */
-public class FrenchRevolutionaryDateTest extends AbstractDateTestCase {
+public class FrenchRevolutionaryDateTest {
 
-    /**
-     * @see de.zedlitz.calendar.AbstractDateTestCase#testGetJulianDate()
-     */
+    @Test
     public void testGetJulianDate() {
         final FrenchRevolutionaryDate frenchRevolutionaryDate = new FrenchRevolutionaryDate(
                 214, 12, 2, 4);
@@ -17,9 +18,7 @@ public class FrenchRevolutionaryDateTest extends AbstractDateTestCase {
                 .getJulianDay(), 0);
     }
 
-    /**
-     * @see de.zedlitz.calendar.AbstractDateTestCase#testSetJulianDate()
-     */
+    @Test
     public void testSetJulianDate() {
         final FrenchRevolutionaryDate frenchRevolutionaryDate = new FrenchRevolutionaryDate();
         frenchRevolutionaryDate.setJulianDay(2453978.5);
@@ -28,7 +27,7 @@ public class FrenchRevolutionaryDateTest extends AbstractDateTestCase {
         assertEquals("correct mois", 12, frenchRevolutionaryDate.getMois());
         assertEquals("correct jour", 4, frenchRevolutionaryDate.getJour());
         assertEquals("correct decade", 2, frenchRevolutionaryDate.getDecade());
-        
+
 
     }
 

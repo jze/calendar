@@ -16,7 +16,7 @@ public class Simple {
     private static final double J1900 = 2415020.5;
 
     public static double unixToJulian(final long t) {
-        return J1970 + (t / (60 * 60 * 24));
+        return J1970 + (t / (60 * 60 * 24.));
     }
 
     public static int julianToUnix(final double jd) {

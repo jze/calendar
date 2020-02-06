@@ -126,11 +126,6 @@ public class IsoDate extends AbstractDate {
 
     /**
      * Return Julian day of given ISO year, week, and day
-     * 
-     * @param year
-     * @param week
-     * @param day
-     * @return
      */
     public double getJulianDay() {
         return day

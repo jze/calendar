@@ -1,14 +1,16 @@
 package de.zedlitz.calendar;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
 /**
  * @author jzedlitz
- * 
  */
-public class IslamicDateTest extends AbstractDateTestCase {
+public class IslamicDateTest {
 
-    /**
-     * @see de.zedlitz.calendar.AbstractDateTestCase#testGetJulianDate()
-     */
+    @Test
     public void testGetJulianDate() {
         IslamicDate islamicDate = new IslamicDate(1427, 8, 6);
 
@@ -16,9 +18,7 @@ public class IslamicDateTest extends AbstractDateTestCase {
                 .getJulianDay(), 0);
     }
 
-    /**
-     * @see de.zedlitz.calendar.AbstractDateTestCase#testSetJulianDate()
-     */
+    @Test
     public void testSetJulianDate() {
         IslamicDate islamicDate = new IslamicDate();
         islamicDate.setJulianDay(2453978.5);
@@ -28,15 +28,17 @@ public class IslamicDateTest extends AbstractDateTestCase {
         assertEquals("day", 6, islamicDate.getDay());
     }
 
+    @Test
     public void testIsLeapYear() {
         IslamicDate islamicDate = new IslamicDate(1427, 8, 6);
-        
+
         assertFalse("no leap year", islamicDate.isLeapYear());
     }
-    
+
+    @Test
     public void testGetDayOfWeek() {
         final IslamicDate date = new IslamicDate(2453978.5);
-        
+
         assertEquals("correct day of week", 4, date.getDayOfWeek());
-    } 
+    }
 }

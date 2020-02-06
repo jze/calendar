@@ -1,14 +1,15 @@
 package de.zedlitz.calendar;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 /**
  * @author jzedlitz
- * 
  */
-public class IsoDayDateTest extends AbstractDateTestCase {
+public class IsoDayDateTest {
 
-    /**
-     * @see de.zedlitz.calendar.AbstractDateTestCase#testGetJulianDate()
-     */
+    @Test
     public void testGetJulianDate() {
         final IsoDate isoDate = new IsoDate(2006, 35, 4);
 
@@ -16,9 +17,7 @@ public class IsoDayDateTest extends AbstractDateTestCase {
                 0);
     }
 
-    /**
-     * @see de.zedlitz.calendar.AbstractDateTestCase#testSetJulianDate()
-     */
+    @Test
     public void testSetJulianDate() {
         final IsoDate isoDate = new IsoDate();
         isoDate.setJulianDay(2453978.5);

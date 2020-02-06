@@ -1,14 +1,15 @@
 package de.zedlitz.calendar;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 /**
  * @author jzedlitz
- * 
  */
-public class HebrewDateTest extends AbstractDateTestCase {
+public class HebrewDateTest {
 
-    /**
-     * @see de.zedlitz.calendar.AbstractDateTestCase#testGetJulianDate()
-     */
+    @Test
     public void testGetJulianDate() {
         final HebrewDate hebrewDate = new HebrewDate(5766, 6, 7);
 
@@ -16,9 +17,7 @@ public class HebrewDateTest extends AbstractDateTestCase {
                 .getJulianDay(), 0);
     }
 
-    /**
-     * @see de.zedlitz.calendar.AbstractDateTestCase#testSetJulianDate()
-     */
+    @Test
     public void testSetJulianDate() {
         final HebrewDate hebrewDate = new HebrewDate();
         hebrewDate.setJulianDay(2453978.5);
@@ -28,6 +27,7 @@ public class HebrewDateTest extends AbstractDateTestCase {
         assertEquals("day", 7, hebrewDate.getDay());
     }
 
+    @Test
     public void testGetDaysInYear() {
         assertEquals("correct number of days", 354, HebrewDate
                 .getDaysInYear(5766));
