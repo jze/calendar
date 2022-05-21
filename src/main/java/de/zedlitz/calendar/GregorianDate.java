@@ -1,8 +1,9 @@
 package de.zedlitz.calendar;
 
+import java.time.LocalDate;
+
 /**
  * @author jzedlitz
- * 
  */
 public class GregorianDate extends AbstractDate {
 
@@ -24,8 +25,19 @@ public class GregorianDate extends AbstractDate {
         this.day = day;
     }
 
+    public GregorianDate(LocalDate localDate) {
+        year = localDate.getYear();
+        month = localDate.getMonthValue();
+        day = localDate.getDayOfMonth();
+    }
+
     public GregorianDate(final double julianDate) {
         this.setJulianDay(julianDate);
+    }
+
+    public static boolean isLeapYear(final int year) {
+        return ((year % 4) == 0)
+                && (!(((year % 100) == 0) && ((year % 400) != 0)));
     }
 
     /**
@@ -36,8 +48,7 @@ public class GregorianDate extends AbstractDate {
     }
 
     /**
-     * @param day
-     *            the day to set
+     * @param day the day to set
      */
     public void setDay(int day) {
         this.day = day;
@@ -51,8 +62,7 @@ public class GregorianDate extends AbstractDate {
     }
 
     /**
-     * @param month
-     *            the month to set
+     * @param month the month to set
      */
     public void setMonth(int month) {
         this.month = month;
@@ -66,25 +76,23 @@ public class GregorianDate extends AbstractDate {
     }
 
     /**
-     * @param year
-     *            the year to set
+     * @param year the year to set
      */
     public void setYear(int year) {
         this.year = year;
     }
 
-    /** Is a given year in the Gregorian calendar a leap year ? */
+    /**
+     * Is a given year in the Gregorian calendar a leap year ?
+     */
 
     public boolean isLeapYear() {
         return GregorianDate.isLeapYear(this.year);
     }
 
-    public static boolean isLeapYear(final int year) {
-        return ((year % 4) == 0)
-                && (!(((year % 100) == 0) && ((year % 400) != 0)));
-    }
-
-    /** Determine Julian day number from Gregorian calendar date */
+    /**
+     * Determine Julian day number from Gregorian calendar date
+     */
     public double getJulianDay() {
         return (GREGORIAN_EPOCH - 1)
                 + (365 * (year - 1))
@@ -92,11 +100,13 @@ public class GregorianDate extends AbstractDate {
                 + (-Math.floor((year - 1) / 100.))
                 + Math.floor((year - 1) / 400.)
                 + Math.floor((((367 * month) - 362) / 12.)
-                        + ((month <= 2) ? 0 : (this.isLeapYear() ? -1 : -2))
-                        + day);
+                + ((month <= 2) ? 0 : (this.isLeapYear() ? -1 : -2))
+                + day);
     }
 
-    /** Calculate Gregorian calendar date from Julian day */
+    /**
+     * Calculate Gregorian calendar date from Julian day
+     */
 
     public void setJulianDay(double jd) {
         int quadricent, dqc, cent, dcent, quad, dquad, yindex, yearday, leapadj;
@@ -124,6 +134,13 @@ public class GregorianDate extends AbstractDate {
 
     public int getDayOfWeek() {
         return Astro.jwday(this.getJulianDay());
+    }
+
+    /**
+     * Return a {@link LocalDate} representation of his GregorianDate.
+     */
+    public LocalDate getLocalDate() {
+        return LocalDate.of(year, month,day);
     }
 
 }

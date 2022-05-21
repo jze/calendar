@@ -2,6 +2,8 @@ package de.zedlitz.calendar;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -9,8 +11,16 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class GregorianDateTest {
     @Test
-    public void testGetJulianDate() {
+    public void constructor() {
         final GregorianDate gregorianDate = new GregorianDate(2006, 8, 31);
+
+        assertEquals(2453978.5, gregorianDate.getJulianDay(), 0);
+    }
+
+    @Test
+    public void constructor_LocalDate() {
+        LocalDate localDate = LocalDate.of(2006, 8, 31);
+        final GregorianDate gregorianDate = new GregorianDate(localDate);
 
         assertEquals(2453978.5, gregorianDate.getJulianDay(), 0);
     }
@@ -88,5 +98,13 @@ public class GregorianDateTest {
     public void testGetModifiedJulianDay() {
         final AbstractDate date = new GregorianDate(2006, 8, 31);
         assertEquals(53978, date.getModifiedJulianDay(), 0);
+    }
+
+    @Test
+    public void getLocalDate() {
+        final GregorianDate date = new GregorianDate(2022, 5, 21);
+        final LocalDate result = date.getLocalDate();
+
+        assertEquals(LocalDate.of(2022, 5, 21), result);
     }
 }
