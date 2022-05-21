@@ -1,8 +1,8 @@
 package de.zedlitz.calendar;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jzedlitz
@@ -14,8 +14,8 @@ public class MayanHaabTest {
         final MayanHaab mayanHaab = new MayanHaab();
         mayanHaab.setJulianDay(2453978.5);
 
-        assertEquals("correct month", 8, mayanHaab.getMonth());
-        assertEquals("correct day", 9, mayanHaab.getDay());
+        assertEquals(8, mayanHaab.getMonth());
+        assertEquals(9, mayanHaab.getDay());
     }
 
 }

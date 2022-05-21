@@ -1,19 +1,18 @@
 package de.zedlitz.calendar;
 
-import junit.framework.TestCase;
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jzedlitz
- * 
  */
-public class AbstractDateTest  {
+public class AbstractDateTest {
 
     @Test
     public void testGetModifiedJulianDay() {
         final AbstractDate date = new GregorianDate(2006, 8, 31);
-        assertEquals("correct MJD", 53978, date.getModifiedJulianDay(), 0);
+        assertEquals(53978, date.getModifiedJulianDay(), 0);
     }
 }

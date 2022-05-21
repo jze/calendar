@@ -1,21 +1,19 @@
 package de.zedlitz.calendar;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author jzedlitz
- * 
  */
-public class BahaiDateTest   {
+public class BahaiDateTest {
 
-   @Test
+    @Test
     public void testGetJulianDate() {
         final BahaiDate bahaiDate = new BahaiDate(1, 9, 11, 9, 12);
 
-        assertEquals("correct julian date", 2453978.5,
-                bahaiDate.getJulianDay(), 0);
+        assertEquals(2453978.5, bahaiDate.getJulianDay(), 0);
     }
 
     @Test
@@ -23,11 +21,11 @@ public class BahaiDateTest   {
         final BahaiDate bahaiDate = new BahaiDate();
         bahaiDate.setJulianDay(2453978.5);
 
-        assertEquals("correct major", 1, bahaiDate.getMajor());
-        assertEquals("correct cycle", 9, bahaiDate.getCycle());
-        assertEquals("correct year", 11, bahaiDate.getYear());
-        assertEquals("correct month", 9, bahaiDate.getMonth());
-        assertEquals("correct day", 12, bahaiDate.getDay());
+        assertEquals(1, bahaiDate.getMajor());
+        assertEquals(9, bahaiDate.getCycle());
+        assertEquals(11, bahaiDate.getYear());
+        assertEquals(9, bahaiDate.getMonth());
+        assertEquals(12, bahaiDate.getDay());
 
     }
 
